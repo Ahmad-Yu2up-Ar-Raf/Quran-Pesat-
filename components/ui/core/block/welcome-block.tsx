@@ -15,6 +15,7 @@ import { Text } from '../../fragments/shadcn-ui/text';
 import ReactangleSVG from '../../fragments/svg/reactangle';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
+import { cn } from '@/lib/utils';
 
 type WelcomeBlockProps = {
   children?: React.ReactNode;
@@ -40,7 +41,11 @@ const WelcomeBlock = ({
         keyboardShouldPersistTaps="handled"
         keyboardDismissMode="interactive"
         contentContainerClassName="  items-center relative justify-center    h-full    relative    ">
-        <View className="absolute -right-4 top-0 h-fit w-full scale-[1.12]">
+        <View
+          className={cn('absolute -right-4 h-fit w-full scale-[1.12]')}
+          style={{
+            top: insets.top, // Adjust the top position based on the safe area inset
+          }}>
           <ReactangleSVG className="relative size-full" />
         </View>
         <Card className="relative m-auto flex h-full w-full max-w-sm content-center justify-center gap-8 border-0 bg-transparent p-2 shadow-none sm:border-border">
@@ -58,13 +63,7 @@ const WelcomeBlock = ({
               />
             </View>
 
-            <CardTitle
-              style={{
-                elevation: 100, // For Android shadow
-              }}
-              className="font-cinzel_semibold text-center text-5xl">
-              {title}
-            </CardTitle>
+            <CardTitle className="font-cinzel_semibold text-center text-5xl">{title}</CardTitle>
           </CardHeader>
           <CardContent className="w-full">
             <CardDescription className="text-center text-xl leading-relaxed tracking-wider text-foreground/80">
