@@ -1,12 +1,13 @@
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/fragments/shadcn-ui/button';
+import { View } from 'react-native';
 import { cn } from '@/lib/utils';
 import { useSSO, type StartSSOFlowParams } from '@clerk/clerk-expo';
 import * as AuthSession from 'expo-auth-session';
-import { router } from 'expo-router';
+
 import * as WebBrowser from 'expo-web-browser';
 import { useColorScheme } from 'nativewind';
 import * as React from 'react';
-import { Image, Platform, View, type ImageSourcePropType } from 'react-native';
+import { Image, Platform, type ImageSourcePropType } from 'react-native';
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -73,17 +74,17 @@ export function SocialConnections() {
   }
 
   return (
-    <View className="gap-2 sm:flex-row sm:gap-3">
+    <View className="relative flex flex-row gap-2 overflow-hidden sm:gap-3">
       {SOCIAL_CONNECTION_STRATEGIES.map((strategy) => {
         return (
           <Button
             key={strategy.type}
             variant="outline"
-            size="sm"
-            className="sm:flex-1"
+            size="lg"
+            className="w-full flex-1 justify-center"
             onPress={onSocialLoginPress(strategy.type)}>
             <Image
-              className={cn('size-4', strategy.useTint && Platform.select({ web: 'dark:invert' }))}
+              className={cn('size-5', strategy.useTint && Platform.select({ web: 'dark:invert' }))}
               tintColor={Platform.select({
                 native: strategy.useTint ? (colorScheme === 'dark' ? 'white' : 'black') : undefined,
               })}

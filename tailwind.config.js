@@ -65,6 +65,14 @@ module.exports = {
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
     },
+    fontFamily: {
+      cinzel_regular: ['Cinzel_400Regular', 'sans-serif'],
+      cinzel_medium: ['Cinzel_500Medium', 'sans-serif'],
+      cinzel_semibold: ['Cinzel_600SemiBold', 'sans-serif'],
+      cinzel_bold: ['Cinzel_700Bold', 'sans-serif'],
+      cinzel_extrabold: ['Cinzel_800ExtraBold', 'sans-serif'],
+      cinzel_black: ['Cinzel_900Black', 'sans-serif'],
+    },
   },
   future: {
     hoverOnlyWhenSupported: true,
